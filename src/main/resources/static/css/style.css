@@ -1,0 +1,853 @@
+/* General Reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+	background-color: #f5f5f7;
+	font-size: 16px;
+	color: #333;
+}
+
+/* Container for entire layout */
+.container {
+	display: flex;
+	height: 100vh;
+	width: 100%;
+}
+
+.back-home-button {
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.back-home-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Sidebar for left pane */
+.sidebar {
+	width: 20%;
+	background-color: #ffffff; /* Changed to white */
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.menu-button {
+	background-color: #007bff; /* Same blue as Validate button */
+	color: white;
+	font-size: 16px;
+	border: none;
+	padding: 8px 16px;
+	margin-bottom: 5px;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	border-radius: 5px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, sans-serif;
+	/* Same font as Validate button */
+	transition: background-color 0.3s ease;
+}
+
+.menu-button:hover {
+	background-color: #0056b3;
+	/* Hover effect similar to Validate button */
+}
+
+.content {
+	width: 80%;
+	padding: 40px;
+	background-color: #ffffff;
+	border-left: 1px solid #ddd;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.progress-message-container {
+	display: flex;
+	align-items: flex-start; /* Align message and circle at the top */
+	gap: 20px; /* Space between progress circle and message */
+	width: 100%; /* Take up the full width of the container */
+}
+
+.progress-ring-container {
+	position: relative;
+	width: 120px;
+	height: 120px;
+}
+
+.progress-ring__background {
+	stroke: #d3d3d3;
+}
+
+.progress-ring__circle {
+	transition: stroke-dashoffset 0.35s;
+	transform: rotate(-90deg);
+	transform-origin: 50% 50%;
+	stroke: blue;
+}
+
+.progress-ring__text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 22px;
+	font-weight: bold;
+	color: blue;
+}
+
+/* Dynamic message area styling */
+#message-area {
+	padding: 10px;
+	background-color: #d4edda;
+	color: #155724;
+	border: 1px solid #c3e6cb;
+	border-radius: 5px;
+	font-size: 14px;
+	flex-grow: 1;
+	max-width: 100%;
+	word-wrap: break-word;
+	text-align: left;
+	min-height: 40px;
+	max-height: 300px;
+	overflow-y: auto;
+	/* Hide the message area initially */
+	display: none;
+}
+/* Section container to manage content visibility */
+.section {
+	display: none;
+	width: 100%;
+}
+
+/* New: Split Right Pane into 2 Sections */
+.right-pane {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	margin-top: 30px;
+}
+
+.right-section {
+	width: 48%; /* Half the width for each section */
+	background-color: #f9f9f9;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Utility Form Styling */
+form {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+select, input[type="file"], button {
+	padding: 12px;
+	font-size: 16px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	width: 100%; /* Full width in the form */
+	border-radius: 8px;
+	border: 1px solid #ccc;
+}
+
+button {
+	background-color: #007bff;
+	color: white;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+button:hover {
+	background-color: #0056b3;
+}
+
+/* Progress Circle and Message Pane */
+.progress-circle {
+	display: inline-block;
+	margin-top: 30px;
+	width: 120px;
+	height: 120px;
+	position: relative;
+}
+
+.circle {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	background-color: #d3d3d3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.percentage {
+	font-size: 24px;
+	font-weight: bold;
+	color: #007bff; /* Using the blue color inspired by Proto 1 */
+}
+
+.message-pane {
+	display: inline-block;
+	margin-left: 40px;
+	padding: 20px;
+	background-color: #f0f0f0;
+	border-radius: 10px;
+	width: 60%;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.message-pane p {
+	font-size: 18px;
+	color: #333;
+}
+
+/* Typography and Heading Styling */
+h2 {
+	font-size: 28px;
+	font-weight: bold;
+	color: #1f1f1f;
+	margin-bottom: 20px;
+}
+
+h3 {
+	font-size: 22px;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+
+p {
+	font-size: 18px;
+	margin-bottom: 10px;
+	line-height: 1.6;
+}
+
+/* Header section */
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+	padding: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	border-bottom: 2px solid #ddd; /* Line beneath the header */
+}
+
+.header-left h1 {
+	margin: 0;
+	font-size: 24px;
+	color: #007bff;
+}
+
+.header-right {
+	text-align: right;
+}
+
+.user-name {
+	font-weight: bold;
+	font-size: 16px;
+	color: #333;
+}
+
+.user-role {
+	font-size: 14px;
+	color: #666;
+}
+
+/* Content pane line beneath options */
+.content-pane {
+	border-top: 2px solid #ddd; /* Line beneath the content pane */
+	padding-top: 20px;
+}
+
+/* Responsive Design for smaller screens */
+@media screen and (max-width: 768px) {
+	.container {
+		flex-direction: column;
+	}
+	.sidebar {
+		width: 100%;
+	}
+	.content {
+		width: 100%;
+	}
+	.right-pane {
+		flex-direction: column;
+	}
+	.right-section {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	select, input[type="file"], button {
+		width: 100%;
+	}
+	.progress-circle, .message-pane {
+		width: 100%;
+		margin-left: 0;
+	}
+}
+
+/* Align Cancel button directly above the utility section */
+.cancel-container {
+	text-align: right;
+	margin-bottom: 10px;
+}
+
+#cancel-btn {
+	display: none;
+	background-color: #f44336;
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	text-align: center;
+	font-size: 18px;
+	border-radius: 4px;
+	cursor: pointer;
+	width: 100px;
+	margin: 0 auto;
+}
+
+#cancel-btn:hover {
+	background-color: #d32f2f;
+}
+
+.progress-message-container {
+	display: flex;
+	align-items: flex-start;
+	gap: 20px;
+	width: 100%;
+}
+
+.progress-ring-container {
+	position: relative;
+	width: 120px;
+	height: 120px;
+}
+
+.progress-ring__background {
+	stroke: #d3d3d3;
+}
+
+.progress-ring__circle {
+	transition: stroke-dashoffset 0.35s;
+	transform: rotate(-90deg);
+	transform-origin: 50% 50%;
+	stroke: blue;
+}
+
+.progress-ring__text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 22px;
+	font-weight: bold;
+	color: blue;
+}
+
+/* Message area styling */
+#message-area {
+	padding: 10px;
+	background-color: #d4edda;
+	color: #155724;
+	border: 1px solid #c3e6cb;
+	border-radius: 5px;
+	font-size: 14px;
+	flex-grow: 1;
+	max-width: 100%;
+	word-wrap: break-word;
+	text-align: left;
+	min-height: 40px;
+	max-height: 300px;
+	overflow-y: auto;
+	display: none;
+}
+
+/* Hyperlink styling for the report folder */
+#report-link {
+	margin-top: 20px;
+	display: none; /* Initially hidden, shown after validation */
+	font-size: 14px;
+	color: #007bff;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#report-link:hover {
+	color: #0056b3;
+	text-decoration: none;
+}
+
+/* Disabled state for the Validate button */
+button:disabled {
+	background-color: #cccccc;
+	color: #666666;
+	cursor: not-allowed;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, sans-serif;
+}
+
+body {
+	background-color: #f4f4f4;
+	padding: 20px;
+}
+
+.container {
+	max-width: 1200px;
+	margin: auto;
+	background-color: #fff;
+	padding: 20px;
+	border: 1px solid #ddd;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.header-left {
+	max-width: 50%;
+}
+
+.header-left h2 {
+	font-size: 18px;
+	color: #333;
+}
+
+.header-left p {
+	font-size: 14px;
+	color: #555;
+}
+
+.calendar img {
+	width: 150px;
+	height: auto;
+	margin-top: 10px;
+}
+
+.header-right h1 {
+	font-size: 28px;
+	color: #4a90e2;
+}
+
+.story-sections {
+	display: flex;
+	justify-content: space-between;
+	gap: 15px;
+	margin-top: 20px;
+}
+
+.story-box {
+	background-color: #f0f0f0;
+	padding: 15px;
+	width: 30%;
+	border-radius: 8px;
+	text-align: center;
+}
+
+.story-box h3 {
+	background-color: #4a90e2;
+	color: #fff;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+.story-box ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.story-box ul li {
+	padding: 5px 0;
+}
+
+.story-box ul li a {
+	color: #333;
+	text-decoration: none;
+}
+
+.story-box ul li a:hover {
+	color: #4a90e2;
+	text-decoration: underline;
+}
+
+.tools-section {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.tools-section h3 {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.tools {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	gap: 10px;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.tools button {
+	background-color: #4a90e2;
+	border: none;
+	padding: 10px 15px;
+	font-size: 14px;
+	border-radius: 4px;
+	cursor: pointer;
+	color: #fff;
+	width: 100%;
+	max-width: 180px;
+}
+
+.tools button:hover {
+	background-color: #2e68a3;
+}
+
+.status-icon {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	margin-left: 10px;
+	background-color: transparent;
+}
+
+.status-icon.completed {
+	background-color: green;
+}
+
+.upload-section {
+	margin-top: 20px;
+	text-align: center; /* Center-align the button */
+}
+
+.uploadbutton {
+	background-color:  #28a745 ; /* Sidebar button color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: left;
+    cursor: pointer;
+    margin: 10px 0; /* Ensure spacing is consistent */
+    width: 200px; /* Adjust to match the size of other sidebar buttons */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.upload-button:hover {
+	 background-color: #28a745; /* Slightly darker color for hover effect */
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #000;
+}
+
+#show-preview-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#show-preview-btn:hover {
+    background-color: #0056b3;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="file"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.validate-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.validate-button:hover {
+    background-color: #0056b3;
+}
+
+.utility-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Adds vertical spacing between elements */
+}
+
+.source-destination-container {
+    display: flex;
+    justify-content: space-around; /* Ensures spacing between Source and Destination sections */
+    align-items: flex-start; /* Aligns content at the top */
+    margin: 20px auto; /* Centers the container */
+    width: 80%; /* Adjust container width as needed */
+    gap: 30px; /* Adds space between the sections */
+}
+
+.select-source,
+.select-destination {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns items to the start of each section */
+    gap: 10px; /* Adds space between the items in each section */
+}
+
+.select-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.destination-section {
+    margin-right: 0;
+}
+
+.radio-group, .checkbox-group {
+    margin-top: 10px;
+}
+
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.validate-button, .reset-button {
+    background-color: #007bff; /* Blue for validate */
+    color: #fff;
+    padding: 10px 20px; /* Adjusted padding for consistent size */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 16px; /* Consistent font size */
+    width: 150px; /* Fixed width for alignment */
+    text-align: center; /* Ensures text is centered */
+}
+
+.reset-button {
+    background-color: #dc3545; /* Red for reset */
+}
+
+.validate-button:hover {
+    background-color: #0056b3;
+}
+
+.reset-button:hover {
+    background-color: #c82333;
+}
+
+.button-group button:last-child {
+    margin-right: 0; /* Removes margin from the last button */
+}
+
+.utility-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 400px;
+    margin: auto;
+}
+
+.select-options {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Adds spacing between Validate and Reset buttons */
+    margin-top: 20px;
+}
+
+#standard-queries {
+    display: flex;
+    margin: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 15px;
+    gap: 20px;
+}
+
+/* Query Sidebar */
+.query-buttons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    width: 30%;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 600px;
+    border-right: 1px solid #ddd;
+}
+
+.query-buttons-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.query-buttons-container button:hover {
+    background-color: #45a049;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form Elements */
+.input-label,
+.query-label,
+.env-label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.text-input,
+.query-textarea,
+.env-dropdown {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px;
+}
+
+.run-query-button {
+    text-align: center;
+}
+
+.run-query-button button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.run-query-button button:hover {
+    background-color: #45a049;
+}

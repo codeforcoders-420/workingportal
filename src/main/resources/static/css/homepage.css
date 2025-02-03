@@ -1,0 +1,807 @@
+/* General Styles */
+section {
+	height: 100vh; /* Full-screen height for each section */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	scroll-snap-align: start; /* Snap alignment for scrolling */
+	scroll-snap-stop: always;
+	background-color: #ffffff;
+}
+
+html {
+	scroll-behavior: smooth; /* Smooth scrolling behavior */
+	scroll-snap-type: y mandatory; /* Snap scrolling vertically */
+	overflow-y: scroll;
+}
+
+/* Navigation Bar */
+.nav-pane {
+ 	position: fixed;
+    top: 0;
+    left: 0;
+    width: 90%;
+    background: #fff; /* White background */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Center nav-right horizontally */
+.nav-container {
+	display: flex;
+    justify-content: space-between; /* Ensure space between title and navigation */
+    align-items: center;
+    position: relative;
+    background-color: white;
+    height: 60px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+}
+
+/* Navigation links centered */
+.nav-right {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* User info positioned top-right */
+.user-info {
+    position: absolute;
+    top: 10px; /* Spacing from the top */
+    right: 20px; /* Spacing from the right */
+    font-size: 14px;
+    color: #333; /* Text color */
+    font-weight: bold;
+}
+
+.navbar {
+position: fixed;
+    top: 0;
+    left: 0;
+    width: 98%;
+    background: #fff; /* White background */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left h1 {
+	font-size: 1.5em;
+	color: #4c6ef5;
+	margin: 0;
+}
+
+.nav-right {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.nav-right a {
+	color: #333;
+	text-decoration: none;
+	font-size: 1rem;
+	font-weight: bold;
+	transition: color 0.3s;
+}
+
+.nav-right a:hover {
+	color: #4c6ef5;
+}
+
+.nav-right button {
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 8px 12px;
+	cursor: pointer;
+}
+
+.nav-right button:hover {
+	background-color: #0056b3;
+}
+
+.scroll-section {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center; /* Centers vertically */
+	align-items: center; /* Centers horizontally */
+	background-color: #f8f9fa;
+	padding: 20px;
+	text-align: center; /* Ensures the text is centered */
+}
+
+.tool-cards {
+	display: flex;
+	justify-content: center; /* Centers the cards horizontally */
+	align-items: flex-start;
+	gap: 20px; /* Adds space between the cards */
+}
+
+.tool-card {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	padding: 20px;
+	width: 20%;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	text-align: left;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	
+}
+
+.tool-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tool-card h3 {
+	font-size: 1.5rem;
+	color: #4a90e2;
+	margin-bottom: 15px;
+}
+
+.tool-card ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.tool-card ul li {
+	font-size: 1rem;
+	color: #333;
+	margin-bottom: 10px;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, sans-serif;
+	color: #333;
+	margin: 0;
+	padding: 0;
+	background-color: #ffffff;
+}
+
+/* Section Container */
+
+.background-section {
+    background-image: url('/static/backgroundimage1.jpeg'); /* Path to the image in the static folder */
+    background-size: cover; /* Ensures the image covers the section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating the image */
+    color: #ffffff; /* Ensures text is visible on the background */
+    padding: 20px; /* Optional: Adds padding for content */
+    min-height: 100vh; /* Ensures the section takes full viewport height */
+}
+
+
+.section-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 50px 0;
+	gap: 30px; /* Adds space between the search and message board */
+    margin-top: 20px;
+}
+
+/* Section Headers */
+.section-header {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.section-header h2 {
+	font-size: 28px;
+	color:#fff;
+}
+
+.section-header p {
+	font-size: 16px;
+	color: #666;
+}
+
+/* Section 1 (Deployment Schedule) */
+.section1 {
+	background-color: #1b1f1c; /* Dark green background */
+    color: #fff; /* White text */
+    min-height: 100vh;
+    padding-top: 80px; /* Ensure content doesn't overlap with the navigation */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#section1.background-section {
+    background-image: url('/image5.jpg'); /* Replace with the actual path to your image */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling of the image */
+    height: 100vh; /* Adjust based on your section's height */
+    width: 100%; /* Ensures the background image spans the full width */
+}
+
+#section1 {
+    background: linear-gradient(135deg, #e8f5e9, #ffffff);
+    padding: 25px 10px; /* Adjust padding for a clean layout */
+    border-radius: 4px; /* Optional for rounded corners */
+    background-image: url('/static/backgroundimage1.jpeg');
+}
+
+/* Calendar Container */
+.calendar-container {
+	width: 45%;
+}
+
+.calendar-title {
+	font-size: 20px;
+	font-weight: bold;
+	color: #ffffff;
+	margin-bottom: 15px;
+}
+
+/* Search Section */
+.search-container {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 45%;
+}
+
+.search-container input[type="text"] {
+	padding: 8px;
+	margin-right: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 70%;
+}
+
+.search-container button {
+	background-color: #28a745;
+	color: #fff;
+	border: none;
+	padding: 8px 12px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.search-container button:hover {
+	background-color: #218838;
+}
+
+/* Section 2 (Team Collaboration Tools) */
+.section-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center */
+    align-items: center; /* Horizontally center */
+    min-height: 100vh; /* Make sure it takes full screen height */
+    padding: 100px 20px; /* Add padding to avoid overlap with navigation pane */
+    box-sizing: border-box;
+}
+
+.section-2 h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px; 
+}
+
+.section-2 p {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 40px; /* Space between subtitle and cards */
+}
+
+
+.section-2 .card-container {
+	display: flex;
+	justify-content: space-between;
+	width: 80%;
+}
+
+.section-2 .card {
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	width: 30%;
+	text-align: center;
+}
+
+.section-2 .card h3 {
+	color: #4c6ef5;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.section-2 .card p {
+	font-size: 14px;
+	color: #555;
+}
+
+#section3 {
+	background-color: #dee2e6; /* Darker grey for third section */
+}
+
+/* Section 3 Styling */
+#individualtools {
+    padding: 50px;
+    background-color: #f5f6fa;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2em;
+    margin-bottom: 80px;
+    color: #333;
+    text-align: center; /* Ensures the title is centered */
+    margin: 0 auto; /* Centers the title */
+}
+
+
+.individualtools-container {
+   display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Keep spacing between tool cards */
+    padding-top: 20px; /* Add spacing between title and cards */
+}
+
+.individualtools-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.individualtools-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.individualtools-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.individualtools-description {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.individualtools-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+
+.individualtools-button:hover {
+    background-color: #0056b3;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	margin-top: 10px;
+}
+
+
+.sccontainer {
+	width: 50%;
+	margin: 0 auto;
+}
+
+/* Header Section */
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 0;
+}
+
+.header-left h2 {
+	font-size: 1.5em;
+	color: white;
+}
+
+.header-left p {
+	font-size: 0.9em;
+	color: #0080ff;
+}
+
+.header-right h1 {
+	font-size: 1.5em;
+	color: #0080ff;
+	text-align: left; /* Aligns text to the left */
+	float: right; /* Keeps it on the right side */
+	margin-top: 10px; /* Adds some space from the top */
+	margin-right: 20px; /* Adjust spacing from the edge */
+}
+
+/* Calendar Styles */
+.calendar-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	max-width: 300px;
+	margin: auto;
+}
+
+.calendar {
+	width: 180px; /* Adjusted for smaller size */
+	padding: 10px;
+	border-radius: 8px;
+	background-color: #f9f9f9;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	margin: 0 auto; /* Center the calendar within its container */
+}
+
+.calendar-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 5px;
+}
+
+.calendar-header h3 {
+	font-size: 1em;
+	font-weight: bold;
+	color: #0080ff;
+	margin: 0;
+}
+
+.calendar-nav {
+	background-color: #0080ff;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 3px 8px;
+	cursor: pointer;
+	font-size: 0.8em;
+}
+
+.calendar-days {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 2px;
+	font-size: 0.85em;
+	margin-top: 5px;
+}
+
+.calendar-day {
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	border-radius: 4px;
+	font-size: 0.85em;
+	color: #333;
+}
+
+.calendar-day.highlight {
+	background-color: #ffeb3b; /* Highlight color for specific days */
+	color: #000;
+}
+
+.calendar-day.today {
+	background-color: #6a1b9a; /* Color for today */
+	color: #fff;
+}
+
+/* Story Sections */
+.story-sections {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.story-box {
+	background-color: #fff;
+	padding: 15px;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	flex: 1;
+	text-align: center;
+}
+
+.story-box h3 {
+	font-size: 1.1em;
+	margin-bottom: 10px;
+	color: #0080ff;
+}
+
+.story-box ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.story-box ul li {
+	margin: 5px 0;
+}
+
+.story-box ul li a {
+	color: #000000;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.story-box ul li a:hover {
+	text-decoration: underline;
+}
+
+/* Stand-alone Tools Section */
+.tools-section {
+	margin-top: 20px;
+	text-align: left;
+}
+
+.tools-section h3 {
+	font-size: 1.1em;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+.tools {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.tools button {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 0.9em;
+	transition: background-color 0.3s ease;
+}
+
+.tools button:hover {
+	background-color: #53107b;
+}
+
+.highlight {
+	background-color: #ffeb3b; /* Yellow highlight for specific weekdays */
+	color: #000;
+}
+
+.today {
+	background-color: #6a1b9a; /* Color for today's date */
+	color: #fff;
+	font-weight: bold;
+}
+
+/* Header alignment */
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+}
+
+/* Calendar and tile container adjustment */
+.header-left, .tile-image-container, .header-right {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.header-left {
+	flex: 1;
+	align-items: flex-start; /* Aligns to the left */
+}
+
+.tile-image-container {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	max-width: 100%;
+}
+
+.tile-image-container img {
+	width: 100%;
+	height: auto;
+	max-width: 500px; /* Increased max width for readability */
+	border-radius: 8px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	object-fit: contain;
+}
+
+/* Center alignment for the greeting */
+.header-right {
+	flex: 1;
+	text-align: center;
+	align-items: flex-end;
+}
+
+.search-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 20px auto;
+	gap: 10px;
+}
+
+.search-label {
+	font-size: 16px;
+	color: white;
+	font-weight: bold;
+}
+
+.search-input {
+	padding: 8px;
+	width: 200px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 14px;
+}
+
+.search-button {
+	padding: 8px 16px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 14px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+	background-color: #45a049;
+}
+
+.results-section {
+	width: auto;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	text-align: center;
+	border-radius: 5px;
+	padding: 10px;
+	background-color: #fff;
+}
+
+.result-table {
+	margin: 0 auto; /* Center-align the table within the container */
+	border-collapse: collapse;
+	table-layout: auto;
+	width: auto;
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+
+.result-table th, .result-table td {
+	padding: 8px 12px;
+	border: 1px solid #ddd;
+	text-align: center;
+}
+
+.result-table th {
+	background-color: #f4f4f4;
+	font-weight: bold;
+}
+
+.exists-button {
+	padding: 5px 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.exists-button:hover {
+	background-color: #45a049;
+}
+
+.message {
+	color: red;
+	font-weight: bold;
+}
+
+.add-button {
+	padding: 8px 15px;
+	background-color: #007BFF;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.add-button:hover {
+	background-color: #0056b3;
+}
+
+.message-container {
+	text-align: left;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.message {
+	color: red;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+#results-table a {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#results-table a:hover {
+	color: darkblue;
+}
+
+#message-board {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    background-color: #ffffff; /* White background */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px; /* Inner spacing */
+    text-align: center; /* Center text alignment */
+}
+
+#message-board img {
+    width: 40px; /* Adjust logo size */
+    height: auto;
+    margin-bottom: 10px; /* Space below the logo */
+}
+
+#message-board h3 {
+    font-size: 1.5em;
+    font-weight: bold; /* Bold text */
+    color: #000; /* Black text */
+    margin-bottom: 15px;
+}
+
+#message-board ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 1em;
+    color: #FF0000; /* Red text for content */
+    margin: 0; /* Remove default margin */
+}
+
+#message-board ul li {
+    margin-bottom: 10px; /* Space between list items */
+}

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homepage</title>
+<link rel="stylesheet" th:href="@{/css/homepage.css}">
+</head>
+<body>
+
+	<!-- Navigation Bar -->
+	<div class="navbar">
+		<div class="nav-left">
+			<h1>MN TEAM INTERNAL PORTAL</h1>
+		</div>
+		<div class="nav-right">
+			<a href="#home">Home</a> <a href="#stories">Stories</a> <a
+				href="#tools">Tools</a> <a href="#how-it-works">How It Works</a> <a
+				href="#contact" class="contact-btn">Contact</a>
+		</div>
+
+	</div>
+
+
+
+	<div class="container">
+		<!-- Section 1: Header and Search -->
+		<section id="section1" class="background-section" data-section="home">
+			<header>
+				<div class="header-left">
+					<h2>Current Week Deployment Schedule</h2>
+					<div class="calendar-container">
+						<div class="calendar">
+							<div class="calendar-header">
+								<button class="calendar-nav">◀</button>
+								<h3 id="calendar-month-year">November 2024</h3>
+								<button class="calendar-nav">▶</button>
+							</div>
+							<div class="calendar-days">
+								<div class="calendar-day">Sun</div>
+								<div class="calendar-day">Mon</div>
+								<div class="calendar-day">Tue</div>
+								<div class="calendar-day">Wed</div>
+								<div class="calendar-day">Thu</div>
+								<div class="calendar-day">Fri</div>
+								<div class="calendar-day">Sat</div>
+								<!-- Days will be generated dynamically here by JavaScript -->
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="sccontainer">
+					<!-- Search Container -->
+					<div class="search-container">
+						<label for="search-input" class="search-label">Search by
+							TFS #:</label> <input type="text" id="searchInput"
+							placeholder="Enter TFS number" class="search-input">
+						<button id="searchButton" class="search-button">Search</button>
+					</div>
+
+				</div>
+			</header>
+		</section>
+
+		<!-- Section 2: Stories -->
+		<section id="section-2" data-section="stories" class="scroll-section">
+			<div class="container">
+				<h2>Team Collaboration Tools</h2>
+				<p>Enhance workflow and productivity</p>
+				<div class="tool-cards">
+					<div class="tool-card">
+						<h3>RG Stories</h3>
+						<ul>
+							<li><a th:href="@{/openRGStory}">123456</a></li>
+							<li>345676</li>
+							<li>546732</li>
+							<li>354335</li>
+							<li>657532</li> 
+							<li>465763</li>
+							<li>643634</li>
+						</ul>
+					</div>
+					<div class="tool-card">
+						<h3>ENR Stories</h3>
+						<ul>
+							<li>123456</li>
+							<li>345676</li>
+							<li>546732</li>
+							<li>354335</li>
+							<li>657532</li>
+							<li>465763</li>
+							<li>643634</li>
+						</ul>
+					</div>
+					<div class="tool-card">
+						<h3>BF Stories</h3>
+						<ul>
+							<li>123456</li>
+							<li>345676</li>
+							<li>546732</li>
+							<li>354335</li>
+							<li>657532</li>
+							<li>465763</li>
+							<li>643634</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Section 3: Tools -->
+		<section id="individualtools" data-section="indtools">
+			<div class="individualtools-section">
+				<h3 class="section-title">Stand-alone Tools</h3>
+				<div class="individualtools-container">
+					<div class="individualtools-card">
+						<h4 class="individualtools-title">Peer Review</h4>
+						<p class="individualtools-description">Validate peer reviews
+							efficiently.</p>
+						<button class="individualtools-button">Open</button>
+					</div>
+					<div class="individualtools-card">
+						<h4 class="individualtools-title">DB to DB</h4>
+						<p class="individualtools-description">Compare databases
+							seamlessly.</p>
+						<button class="individualtools-button">Open</button>
+					</div>
+					<div class="individualtools-card">
+						<h4 class="individualtools-title">Pre-Impact</h4>
+						<p class="individualtools-description">Pre-check impact
+							analysis.</p>
+						<button class="individualtools-button">Open</button>
+					</div>
+					<div class="individualtools-card">
+						<h4 class="individualtools-title">Analyst Checklist</h4>
+						<p class="individualtools-description">Ensure thorough
+							reviews.</p>
+						<button class="individualtools-button">Open</button>
+					</div>
+					<div class="individualtools-card">
+						<h4 class="individualtools-title">Standard Queries</h4>
+						<p class="individualtools-description">Run standard query
+							checks.</p>
+						<button class="individualtools-button">Open</button>
+					</div>
+					<div class="individualtools-card">
+						<h4 class="individualtools-title">PDD</h4>
+						<p class="individualtools-description">Process documentation
+							details.</p>
+						<button class="individualtools-button">Open</button>
+					</div>
+					<div class="individualtools-card">
+						<h4 class="individualtools-title">[Place Holder]</h4>
+						<p class="individualtools-description">Future functionality
+							here.</p>
+						<button class="individualtools-button">Open</button>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<script>
+	document.addEventListener("DOMContentLoaded", function () {
+	    renderCalendar(new Date());
+	});
+
+	function renderCalendar(currentDate) {
+	    const calendarContainer = document.querySelector(".calendar");
+	    const daysContainer = document.createElement("div");
+	    daysContainer.classList.add("calendar-days");
+	    calendarContainer.innerHTML = ""; // Clear previous content
+
+	    // Header with navigation and current month/year
+	    const header = document.createElement("div");
+	    header.classList.add("calendar-header");
+
+	    const prevButton = document.createElement("button");
+	    prevButton.classList.add("calendar-nav");
+	    prevButton.textContent = "<";
+	    prevButton.onclick = () => renderCalendar(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1));
+
+	    const nextButton = document.createElement("button");
+	    nextButton.classList.add("calendar-nav");
+	    nextButton.textContent = ">";
+	    nextButton.onclick = () => renderCalendar(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1));
+
+	    const monthYear = document.createElement("h3");
+	    monthYear.textContent = currentDate.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+
+	    header.appendChild(prevButton);
+	    header.appendChild(monthYear);
+	    header.appendChild(nextButton);
+	    calendarContainer.appendChild(header);
+
+	    // Days of the week
+	    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+	    daysOfWeek.forEach(day => {
+	        const dayElement = document.createElement("div");
+	        dayElement.classList.add("calendar-day");
+	        dayElement.textContent = day;
+	        dayElement.style.fontWeight = "bold";
+	        daysContainer.appendChild(dayElement);
+	    });
+
+	    // Dates
+	    const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+	    const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+	    const startDay = firstDay.getDay();
+
+	    // Get the start of the current week
+	    const today = new Date();
+	    const currentWeekStart = new Date(today.setDate(today.getDate() - today.getDay())); // Sunday of current week
+	    const currentWeekEnd = new Date(currentWeekStart);
+	    currentWeekEnd.setDate(currentWeekStart.getDate() + 6); // Saturday of current week
+
+	    // Add empty placeholders for days before the first of the month
+	    for (let i = 0; i < startDay; i++) {
+	        const placeholder = document.createElement("div");
+	        placeholder.classList.add("calendar-day");
+	        daysContainer.appendChild(placeholder);
+	    }
+
+	    // Add day numbers
+	    for (let i = 1; i <= lastDay.getDate(); i++) {
+	        const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), i);
+	        const dayElement = document.createElement("div");
+	        dayElement.classList.add("calendar-day");
+	        dayElement.textContent = i;
+
+	        // Highlight Monday, Wednesday, and Thursday if within the current week
+	        if (date >= currentWeekStart && date <= currentWeekEnd && [1, 3, 4].includes(date.getDay())) {
+	            dayElement.classList.add("highlight");
+	        }
+
+	        // Highlight today's date
+	        if (i === new Date().getDate() && currentDate.getMonth() === new Date().getMonth() && currentDate.getFullYear() === new Date().getFullYear()) {
+	            dayElement.classList.add("today");
+	        }
+	        
+	        daysContainer.appendChild(dayElement);
+	    }
+
+	    calendarContainer.appendChild(daysContainer);
+	}
+    </script>
+
+	<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchButton = document.getElementById("searchButton");
+        const searchInput = document.getElementById("searchInput");
+        const resultsTable = document.getElementById("resultsTable");
+        const resultsBody = document.getElementById("resultsBody");
+        const message = document.getElementById("message");
+
+        // Event Listener for Search Button
+        searchButton.addEventListener("click", function () {
+            const folderName = searchInput.value.trim();
+            if (!folderName) {
+                message.textContent = "Please enter a TFS # to begin search.";
+                resultsTable.style.display = "none";
+                return;
+            }
+
+            // Clear previous results
+            message.textContent = "";
+            resultsBody.innerHTML = "";
+
+            // Send Request to Backend
+            fetch(`/checkFolder?folderName=${folderName}`)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Folder check failed.");
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    if (data.exists) {
+                        // Folder exists
+                        resultsTable.style.display = "table";
+                        const row = document.createElement("tr");
+
+                        const tfsCell = document.createElement("td");
+                        tfsCell.innerHTML = `<a href="/openRGStory?storyNumber=${folderName}">${folderName}</a>`;
+                        row.appendChild(tfsCell);
+
+                        const actionCell = document.createElement("td");
+                        actionCell.innerHTML = "<button class='add-button' disabled>Exists</button>";
+                        row.appendChild(actionCell);
+
+                        resultsBody.appendChild(row);
+                    } else {
+                        // Folder does not exist
+                        resultsTable.style.display = "table";
+                        const row = document.createElement("tr");
+
+                        const tfsCell = document.createElement("td");
+                        tfsCell.innerHTML = `<a href="/openRGStory?storyNumber=${folderName}">${folderName}</a>`;
+                        row.appendChild(tfsCell);
+
+                        const actionCell = document.createElement("td");
+                        const addButton = document.createElement("button");
+                        addButton.className = "add-button";
+                        addButton.textContent = "Add";
+                        addButton.addEventListener("click", function () {
+                            // Add folder logic
+                            fetch(`/createFolder?folderName=${folderName}`, { method: "POST" })
+                                .then((createResponse) => {
+                                    if (!createResponse.ok) {
+                                        throw new Error("Folder creation failed.");
+                                    }
+                                    return createResponse.text();
+                                })
+                                .then(() => {
+                                    alert("Folder created successfully!");
+                                    addButton.disabled = true;
+                                    addButton.textContent = "Added";
+                                })
+                                .catch((error) => {
+                                    console.error(error);
+                                    alert("Failed to create folder.");
+                                });
+                        });
+                        actionCell.appendChild(addButton);
+                        row.appendChild(actionCell);
+
+                        resultsBody.appendChild(row);
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                    message.textContent = "Error occurred while searching.";
+                    resultsTable.style.display = "none";
+                });
+        });
+    });
+</script>
+
+</body>
+</html>
